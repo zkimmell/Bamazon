@@ -10,7 +10,6 @@ var connection = mysql.createConnection({
 });
  
 connection.connect()
-start();
 
 
 var start = function(){
@@ -43,15 +42,20 @@ var start = function(){
 							]);
 
 							console.log("Your total is" + (chosenItem.price * answer.quantity));
-						
+							start();
 							}
-							})
+						else{
+							console.log("Insufficient quantity!");
+							start();
+							};
+						})
 						}
 					}
 				})
 			})
 		}
-	}
+		start();
+	
 	
 
 
